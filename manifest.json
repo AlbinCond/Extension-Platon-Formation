@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Bloqueur Personnalisé",
-  "version": "1,1",
+  "version": "2",
   "description": "Masquez les éléments indésirables sur n'importe quel site web",
   "permissions": [
     "storage",
