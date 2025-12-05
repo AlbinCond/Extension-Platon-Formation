@@ -1,0 +1,75 @@
+/* Curseur en mode sélection */
+.blocker-selection-mode,
+.blocker-selection-mode * {
+  cursor: crosshair !important;
+}
+
+/* Highlight des éléments survolés */
+.blocker-highlight {
+  outline: 3px solid #ef4444 !important;
+  outline-offset: 2px !important;
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  position: relative !important;
+  z-index: 2147483647 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
+}
+
+.blocker-highlight::after {
+  content: '🎯 Cliquez pour masquer';
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  z-index: 2147483647;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Notification */
+.blocker-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2147483647;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.blocker-notification-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation pour les éléments bloqués */
+[data-blocked] {
+  animation: blocker-fadeout 0.3s ease;
+}
+
+@keyframes blocker-fadeout {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
